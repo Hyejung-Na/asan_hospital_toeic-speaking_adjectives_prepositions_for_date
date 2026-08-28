@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>토익스피킹 핵심 형용사 & 전치사 완벽 마스터 퀴즈</title>
+  <style>
+    /* Pull-to-refresh 및 바운스 스크롤 방지 */
+    html, body {
+      overscroll-behavior-y: contain;
+      overscroll-behavior-x: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+      background: #f4f6fa;
+      color: #2d3748;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .app-container {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    /* Top Navigation / Header */
+    header {
+      background: #1e293b;
+      color: #ffffff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 1.05rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-mode {
+      background: #3b82f6;
+      color: white;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .header-btn {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Main Content Area */
+    main {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: #64748b;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .stat-value {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #6366f1);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Card Box */
+    .quiz-card {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+      text-align: center;
+    }
+
+    .category-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      border: 1px solid #bfdbfe;
+    }
+
+    .korean-prompt {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.4;
+      margin: 8px 0 6px 0;
+      word-break: keep-all;
+    }
+
+    .context-sub {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Options List */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .option-btn {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1e293b;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.15s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .option-btn:active {
+      transform: scale(0.98);
+    }
+
+    .option-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+    }
+
+    .option-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .option-btn:disabled {
+      cursor: default;
+    }
+
+    /* Feedback Banner */
+    .feedback-box {
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feedback-box.correct-fb {
+      background: #ecfdf5;
+      border: 1.5px solid #a7f3d0;
+      color: #065f46;
+    }
+
+    .feedback-box.wrong-fb {
+      background: #fef2f2;
+      border: 1.5px solid #fecaca;
+      color: #991b1b;
+    }
+
+    .feedback-title {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .feedback-desc {
+      font-size: 0.88rem;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Bottom Control Button */
+    .next-btn {
+      width: 100%;
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 16px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    .next-btn:active {
+      background: #1d4ed8;
+      transform: scale(0.99);
+    }
+
+    /* Category Filter Chips */
+    .category-filter {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      scrollbar-width: none;
+    }
+    .category-filter::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chip {
+      white-space: nowrap;
+      padding: 7px 14px;
+      border-radius: 20px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #475569;
+      cursor: pointer;
+    }
+
+    .chip.active {
+      background: #1e293b;
+      color: #ffffff;
+      border-color: #1e293b;
+    }
+
+    /* Modal / Result View */
+    .result-view {
+      display: none;
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    .result-score-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #eff6ff;
+      border: 4px solid #3b82f6;
+      margin: 0 auto 20px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .result-score-circle .score {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1d4ed8;
+    }
+
+    .result-score-circle .total {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .result-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .result-subtitle {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .review-list {
+      text-align: left;
+      margin: 20px 0;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+
+    .review-item {
+      font-size: 0.85rem;
+      padding: 8px 0;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+    .review-item:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <h1>🎯 실전 토스 마스터 <span class="badge-mode">Quiz</span></h1>
+      <button class="header-btn" onclick="resetProgressPrompt()">초기화</button>
+    </header>
+
+    <!-- Main Quiz Body -->
+    <main>
+      <!-- Filter Chips (파트 1 -> 파트 2 순서 배치) -->
+      <div class="category-filter" id="categoryFilter">
+        <button class="chip active" onclick="filterCategory('ALL')">전체 순차 학습</button>
+        <button class="chip" onclick="filterCategory('PART1')">PART 1 : 빈출 핵심 형용사</button>
+        <button class="chip" onclick="filterCategory('PART2')">PART 2 : 날짜·요일·장소 전치사</button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-label">진행도</span>
+          <span class="stat-value" id="currentNum">1 / 40</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">정답률</span>
+          <span class="stat-value" id="accuracyRate" style="color: #2563eb;">0%</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">연속 정답</span>
+          <span class="stat-value" id="streakCount" style="color: #ea580c;">🔥 0</span>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- Quiz Section -->
+      <div id="quizArea">
+        <div class="quiz-card">
+          <span class="category-tag" id="qCategory">파트1 : 토익스피킹에 자주 등장하는 형용사</span>
+          <div class="korean-prompt" id="qPrompt">편리한</div>
+          <div class="context-sub" id="qSubContext">알맞은 영어 단어를 고르세요</div>
+        </div>
+
+        <!-- Options -->
+        <div class="options-grid" id="optionsContainer">
+          <!-- Dynamically inserted buttons with random positions -->
+        </div>
+
+        <!-- Feedback Box -->
+        <div class="feedback-box" id="feedbackBox">
+          <div class="feedback-title" id="fbTitle">🎉 정답입니다!</div>
+          <p class="feedback-desc" id="fbDesc">설명 문구가 표시됩니다.</p>
+        </div>
+
+        <!-- Next Button -->
+        <button class="next-btn" id="nextBtn" onclick="nextQuestion()">다음 문제 풀기 ➔</button>
+      </div>
+
+      <!-- Result View -->
+      <div class="result-view" id="resultView">
+        <div class="result-score-circle">
+          <span class="score" id="finalScore">0</span>
+          <span class="total" id="finalTotal">/ 40</span>
+        </div>
+        <h2 class="result-title">학습을 완료했습니다! 👏</h2>
+        <p class="result-subtitle" id="resultComment">형용사와 전치사 표현을 완벽하게 마스터하셨습니다.</p>
+
+        <div class="review-list" id="wrongReviewList">
+          <!-- Wrong questions summary -->
+        </div>
+
+        <button class="next-btn" style="display:block; margin-top:15px;" onclick="restartQuiz()">다시 도전하기 🔄</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // ==========================================
+    // 100% 교재 수록 단어 완벽 반영 데이터베이스
+    // ==========================================
+    
+    // [파트 1: 토익스피킹에 자주 등장하는 형용사] - 첨부 이미지 전수 수록 (총 23문항)
+    const PART1_ADJECTIVES = [
+      {
+        id: "p1_adj_01",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "편리한",
+        context: "생활, 시설, 앱 등이 쓰기 편할 때",
+        answer: "convenient",
+        distractors: ["inconvenient", "comfortable", "useful"],
+        rule: "convenient는 위치나 시스템, 도구 등이 '편리한' 상태를 의미합니다."
+      },
+      {
+        id: "p1_adj_02",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "(상황, 장소 등이) 불편한",
+        context: "일정, 교통, 환경이 불편할 때",
+        answer: "inconvenient",
+        distractors: ["uncomfortable", "annoying", "stressful"],
+        rule: "상황, 시간, 위치 등이 여의치 않고 '불편한' 것은 inconvenient를 씁니다."
+      },
+      {
+        id: "p1_adj_03",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "편안한",
+        context: "의자, 침대, 옷이 안락하고 편할 때",
+        answer: "comfortable",
+        distractors: ["convenient", "relaxing", "enjoyable"],
+        rule: "신체적인 안락함이나 마음이 편안할 때는 comfortable을 씁니다."
+      },
+      {
+        id: "p1_adj_04",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "(신체적, 심리적 상태가) 불편한",
+        context: "몸이 찌뿌둥하거나 마음이 거북할 때",
+        answer: "uncomfortable",
+        distractors: ["inconvenient", "difficult", "inefficient"],
+        rule: "몸의 통증/어색함이나 심리적 거북함에는 uncomfortable을 씁니다."
+      },
+      {
+        id: "p1_adj_05",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "유용한",
+        context: "기능이나 정보가 쓸모 있을 때",
+        answer: "useful",
+        distractors: ["helpful", "important", "effective"],
+        rule: "useful은 도구나 정보가 실용적이고 '유용한' 상태를 뜻합니다."
+      },
+      {
+        id: "p1_adj_06",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "도움이 되는",
+        context: "사람이나 조언이 큰 힘이 될 때",
+        answer: "helpful",
+        distractors: ["useful", "beneficial", "meaningful"],
+        rule: "helpful은 상대방에게 실질적인 도움이나 기여가 되는 상태를 말합니다."
+      },
+      {
+        id: "p1_adj_07",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "의미가 깊은",
+        context: "가치 있고 뜻깊은 경험일 때",
+        answer: "meaningful",
+        distractors: ["rewarding", "important", "beneficial"],
+        rule: "meaningful은 의미심장하고 '뜻깊은/의미가 깊은' 경험이나 행동에 씁니다."
+      },
+      {
+        id: "p1_adj_08",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "스트레스를 주는",
+        context: "업무나 상황이 심한 부담이 될 때",
+        answer: "stressful",
+        distractors: ["annoying", "uncomfortable", "difficult"],
+        rule: "stressful은 대상이 사람에게 '스트레스를 유발하는/부담을 주는' 상태입니다."
+      },
+      {
+        id: "p1_adj_09",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "이로운, 유익한",
+        context: "건강, 지식, 환경에 긍정적일 때",
+        answer: "beneficial",
+        distractors: ["healthy", "effective", "necessary"],
+        rule: "beneficial은 장기적으로 혜택과 이득이 되는 '이로운/유익한' 상태를 의미합니다."
+      },
+      {
+        id: "p1_adj_10",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "좋은, 훌륭한",
+        context: "가장 기본적이고 긍정적인 평가",
+        answer: "good / nice / great",
+        distractors: ["awesome / fantastic", "fun / exciting", "enjoyable"],
+        rule: "일상 대화 및 스피킹에서 두루 쓰이는 '좋은/훌륭한' 3종 세트입니다."
+      },
+      {
+        id: "p1_adj_11",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "필요한",
+        context: "반드시 있어야 하는 필수적인 상태",
+        answer: "necessary",
+        distractors: ["important", "effective", "useful"],
+        rule: "necessary는 없어서는 안 될 '필요한/필수적인' 것을 가리킵니다."
+      },
+      {
+        id: "p1_adj_12",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "효과적인",
+        context: "성과나 결과를 확실히 낼 때",
+        answer: "effective",
+        distractors: ["efficient", "rewarding", "useful"],
+        rule: "effective는 목표한 효과와 결과를 뚜렷이 나타내는 '효과적인' 상태입니다."
+      },
+      {
+        id: "p1_adj_13",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "효율적인",
+        context: "시간, 비용, 자원의 낭비가 없을 때",
+        answer: "efficient",
+        distractors: ["effective", "convenient", "beneficial"],
+        rule: "efficient는 최소의 노력과 비용으로 최대 효율을 내는 '효율적인' 상태입니다."
+      },
+      {
+        id: "p1_adj_14",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "중요한",
+        context: "비중이 크고 중대한 사안일 때",
+        answer: "important",
+        distractors: ["necessary", "meaningful", "expensive"],
+        rule: "important는 가치나 영향력이 '중요한' 상태를 뜻합니다."
+      },
+      {
+        id: "p1_adj_15",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "짜증 나는",
+        context: "성가시게 신경을 긁을 때",
+        answer: "annoying",
+        distractors: ["stressful", "uncomfortable", "difficult"],
+        rule: "annoying은 남을 거슬리게 하거나 '짜증 나는/성가신' 상태를 의미합니다."
+      },
+      {
+        id: "p1_adj_16",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "보람 있는",
+        context: "노력의 결과로 뿌듯한 성취감을 느낄 때",
+        answer: "rewarding",
+        distractors: ["meaningful", "relaxing", "beneficial"],
+        rule: "rewarding은 봉사, 업무 등 노력 대비 마음의 보상과 '보람 있는' 상태를 말합니다."
+      },
+      {
+        id: "p1_adj_17",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "편안함을 주는",
+        context: "긴장이 풀리고 힐링될 때",
+        answer: "relaxing",
+        distractors: ["comfortable", "healthy", "enjoyable"],
+        rule: "relaxing은 스파, 음악 감상 등 마음과 몸에 '편안함/휴식을 주는' 상태입니다."
+      },
+      {
+        id: "p1_adj_18",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "비싼",
+        context: "가격이나 비용이 높을 때",
+        answer: "expensive",
+        distractors: ["high-end", "important", "stressful"],
+        rule: "expensive는 가격이 '비싼' 것을 나타냅니다."
+      },
+      {
+        id: "p1_adj_19",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "큰 ↔ 작은",
+        context: "크기와 규모의 대비",
+        answer: "large ↔ small",
+        distractors: ["easy ↔ difficult", "expensive ↔ cheap", "good ↔ bad"],
+        rule: "크기와 사이즈의 반대말 짝 표현은 large ↔ small 입니다."
+      },
+      {
+        id: "p1_adj_20",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "쉬운 ↔ 어려운",
+        context: "난이도의 대비",
+        answer: "easy ↔ difficult",
+        distractors: ["large ↔ small", "convenient ↔ inconvenient", "simple ↔ hard"],
+        rule: "난이도의 반대말 짝 표현은 easy ↔ difficult 입니다."
+      },
+      {
+        id: "p1_adj_21",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "재미있는",
+        context: "흥미진진하고 신나는 상태",
+        answer: "fun / interesting / exciting",
+        distractors: ["enjoyable", "awesome / fantastic", "good / great"],
+        rule: "재미와 흥미를 표현하는 3가지 대표 단어 조합입니다."
+      },
+      {
+        id: "p1_adj_22",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "즐길만한",
+        context: "유쾌하고 기분 좋게 즐길 수 있는",
+        answer: "enjoyable",
+        distractors: ["relaxing", "fun / interesting", "meaningful"],
+        rule: "enjoyable은 시간이나 활동이 '즐길만한/유쾌한' 상태를 의미합니다."
+      },
+      {
+        id: "p1_adj_23",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "놀랄 만큼 좋은",
+        context: "감탄이 절로 나오는 환상적인 상태",
+        answer: "awesome / fantastic",
+        distractors: ["good / nice / great", "enjoyable", "exciting"],
+        rule: "최고의 찬사로 쓰이는 '놀랄 만큼 좋은/환상적인' 표현입니다."
+      },
+      {
+        id: "p1_adj_24",
+        part: "PART1",
+        category: "파트1 : 토익스피킹에 자주 등장하는 형용사",
+        korean: "건강에 좋은",
+        context: "신체와 웰빙에 긍정적인 영향",
+        answer: "healthy",
+        distractors: ["beneficial", "relaxing", "effective"],
+        rule: "healthy는 음식이나 습관이 '건강에 좋은' 상태를 뜻합니다."
+      }
+    ];
+
+    // [파트 2: 날짜, 요일, 장소 등의 전치사] - 첨부 교재 100% 수록 (총 17문항)
+    const PART2_PREPOSITIONS = [
+      // 장소 전치사 (at / in / on)
+      {
+        id: "p2_prep_01",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "김포 국제 공항에서",
+        context: "특정한 장소/지점 (Specific Spot)",
+        answer: "at Gimpo International Airport",
+        distractors: ["in Gimpo International Airport", "on Gimpo International Airport", "from Gimpo International Airport"],
+        rule: "공항, 역, 특정 건물 등 지점 개념의 구체적 장소에는 at을 씁니다."
+      },
+      {
+        id: "p2_prep_02",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "메인 스트리트 1330번지에서",
+        context: "구체적 번지수가 있는 주소 (Specific Address)",
+        answer: "at 1330 Main Street",
+        distractors: ["on 1330 Main Street", "in 1330 Main Street", "to 1330 Main Street"],
+        rule: "번지수(숫자)가 포함된 정확한 주소 지점 앞에는 at을 씁니다."
+      },
+      {
+        id: "p2_prep_03",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "105호에서",
+        context: "실내 공간 / 방 (Room Inside)",
+        answer: "in Room 105",
+        distractors: ["at Room 105", "on Room 105", "to Room 105"],
+        rule: "방(Room), 사무실 등 둘러싸인 실내 공간에는 in을 씁니다."
+      },
+      {
+        id: "p2_prep_04",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "서울에서",
+        context: "도시 이름 (City)",
+        answer: "in Seoul",
+        distractors: ["at Seoul", "on Seoul", "by Seoul"],
+        rule: "도시, 구, 주 등 넓은 행정구역 범위 안에는 in을 씁니다."
+      },
+      {
+        id: "p2_prep_05",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "한국에서",
+        context: "국가 이름 (Country)",
+        answer: "in Korea",
+        distractors: ["at Korea", "on Korea", "for Korea"],
+        rule: "국가(나라) 이름 앞에는 전치사 in을 사용합니다."
+      },
+      {
+        id: "p2_prep_06",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "2층에서",
+        context: "건물의 층수 (Floor)",
+        answer: "on the 2nd floor",
+        distractors: ["in the 2nd floor", "at the 2nd floor", "to the 2nd floor"],
+        rule: "건물의 '층(floor)'은 바닥 표면 접촉 개념으로 on을 씁니다."
+      },
+      {
+        id: "p2_prep_07",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "웨스트 스트리트에서",
+        context: "거리 이름 (Street - 번지수 없음)",
+        answer: "on West Street",
+        distractors: ["at West Street", "in West Street", "under West Street"],
+        rule: "번지수 없이 도로/거리(Street/Road/Avenue) 이름만 나올 때는 on을 씁니다."
+      },
+      {
+        id: "p2_prep_08",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "아메리칸 항공편으로",
+        context: "항공편 / 교통편 (Airlines / Flight)",
+        answer: "on American Airlines",
+        distractors: ["in American Airlines", "at American Airlines", "with American Airlines"],
+        rule: "항공편, 기차, 버스 등 대형 교통수단 이용 시 on을 씁니다."
+      },
+
+      // 시간, 날짜, 요일, 월, 계절, 기간 전치사
+      {
+        id: "p2_prep_09",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "10월 24일에",
+        context: "특정한 날짜 (Specific Date)",
+        answer: "on Oct. 24th",
+        distractors: ["in Oct. 24th", "at Oct. 24th", "from Oct. 24th"],
+        rule: "특정한 '날짜(Date)' 앞에는 전치사 on을 씁니다."
+      },
+      {
+        id: "p2_prep_10",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "월요일에",
+        context: "특정 요일 (Day of the week)",
+        answer: "on Monday",
+        distractors: ["in Monday", "at Monday", "by Monday"],
+        rule: "요일(Day) 앞에는 항상 on을 씁니다."
+      },
+      {
+        id: "p2_prep_11",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "7월 2일 토요일에",
+        context: "요일과 특정 일자 결합",
+        answer: "on Sat., July 2nd",
+        distractors: ["at Sat., July 2nd", "in Sat., July 2nd", "for Sat., July 2nd"],
+        rule: "요일과 구체적 날짜가 함께 올 때도 기준은 일자이므로 on을 씁니다."
+      },
+      {
+        id: "p2_prep_12",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "오전 9시에",
+        context: "구체적 시각 (Exact Clock Time)",
+        answer: "at 9:00 a.m.",
+        distractors: ["on 9:00 a.m.", "in 9:00 a.m.", "by 9:00 a.m."],
+        rule: "몇 시 몇 분 등 정확한 시각 앞에는 at을 씁니다."
+      },
+      {
+        id: "p2_prep_13",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "오후 2시에",
+        context: "구체적 시각 (Exact Clock Time)",
+        answer: "at 2:00 p.m.",
+        distractors: ["in 2:00 p.m.", "on 2:00 p.m.", "till 2:00 p.m."],
+        rule: "시각 앞에는 at을 씁니다."
+      },
+      {
+        id: "p2_prep_14",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "6월에",
+        context: "월 (Month 단독)",
+        answer: "in June",
+        distractors: ["on June", "at June", "for June"],
+        rule: "날짜 없이 월(Month)만 올 때는 in을 씁니다."
+      },
+      {
+        id: "p2_prep_15",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "여름에",
+        context: "계절 (Season)",
+        answer: "in the summer",
+        distractors: ["on the summer", "at the summer", "during to summer"],
+        rule: "계절 앞에는 in the [계절] 형태를 씁니다."
+      },
+      {
+        id: "p2_prep_16",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "오후 2시부터 오후 3시까지",
+        context: "시각 기간 표현 (~부터 ~까지)",
+        answer: "from 2 p.m. to 3 p.m.",
+        distractors: ["between 2 p.m. to 3 p.m.", "at 2 p.m. to 3 p.m.", "from 2 p.m. until 3 p.m. at"],
+        rule: "시작과 끝을 나타내는 기간 표현은 'from A to B'입니다."
+      },
+      {
+        id: "p2_prep_17",
+        part: "PART2",
+        category: "파트2 : 날짜, 요일, 장소 등의 전치사",
+        korean: "12월 1일부터 2월 15일까지",
+        context: "날짜 기간 표현 (~부터 ~까지)",
+        answer: "from December 1st to February 15th",
+        distractors: ["on December 1st to February 15th", "in December 1st to February 15th", "between December 1st with February 15th"],
+        rule: "날짜 기간 역시 'from [시작일] to [종료일]' 형식을 씁니다."
+      }
+    ];
+
+    // 전체 결합 풀 (파트 1이 먼저 나오고 파트 2가 뒤에 순차 진행)
+    const FULL_ORDERED_POOL = [...PART1_ADJECTIVES, ...PART2_PREPOSITIONS];
+
+    // --- State 관리 & LocalStorage 영구 보존 ---
+    const STORAGE_KEY = "TOEIC_SPEAKING_QUIZ_FINAL_V3";
+
+    let state = {
+      selectedCategory: "ALL", // "ALL", "PART1", "PART2"
+      currentIndex: 0,
+      score: 0,
+      totalAnswered: 0,
+      streak: 0,
+      quizPool: [],
+      answeredQuestions: {}, // { [qId]: { selected, isCorrect, timestamp } }
+      wrongIds: []
+    };
+
+    // Fisher-Yates 배열 무작위 셔플 (선택지 4개 위치를 매번 섞어줌)
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    // 초기 데이터 로드 및 초기화
+    function loadSavedState() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          state = { ...state, ...parsed };
+        } catch (e) {
+          console.error("저장 데이터 파싱 오류", e);
+        }
+      }
+      buildQuizPool();
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function buildQuizPool() {
+      if (state.selectedCategory === "ALL") {
+        state.quizPool = [...FULL_ORDERED_POOL];
+      } else if (state.selectedCategory === "PART1") {
+        state.quizPool = [...PART1_ADJECTIVES];
+      } else if (state.selectedCategory === "PART2") {
+        state.quizPool = [...PART2_PREPOSITIONS];
+      }
+      if (state.currentIndex >= state.quizPool.length) {
+        state.currentIndex = 0;
+      }
+    }
+
+    function filterCategory(cat) {
+      state.selectedCategory = cat;
+      state.currentIndex = 0;
+      buildQuizPool();
+      
+      // Update chip UI
+      document.querySelectorAll(".chip").forEach(btn => {
+        if ((cat === "ALL" && btn.textContent.includes("전체")) || 
+            (cat === "PART1" && btn.textContent.includes("PART 1")) ||
+            (cat === "PART2" && btn.textContent.includes("PART 2"))) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+
+      saveState();
+      renderCurrentQuiz();
+    }
+
+    function updateStatsUI() {
+      const totalInPool = state.quizPool.length;
+      document.getElementById("currentNum").textContent = `${state.currentIndex + 1} / ${totalInPool}`;
+      
+      const acc = state.totalAnswered === 0 ? 0 : Math.round((state.score / state.totalAnswered) * 100);
+      document.getElementById("accuracyRate").textContent = `${acc}%`;
+      document.getElementById("streakCount").textContent = `🔥 ${state.streak}`;
+      
+      const progPercent = ((state.currentIndex + 1) / totalInPool) * 100;
+      document.getElementById("progressBar").style.width = `${progPercent}%`;
+    }
+
+    function renderCurrentQuiz() {
+      if (state.quizPool.length === 0) return;
+
+      document.getElementById("quizArea").style.display = "block";
+      document.getElementById("resultView").style.display = "none";
+
+      const currentQ = state.quizPool[state.currentIndex];
+      
+      document.getElementById("qCategory").textContent = currentQ.category;
+      document.getElementById("qPrompt").textContent = currentQ.korean;
+      document.getElementById("qSubContext").textContent = currentQ.context;
+
+      // 4지선다 옵션 생성 + 무작위 셔플 (정답 번호가 매번 바뀌도록 보장)
+      const rawOptions = [
+        { text: currentQ.answer, isCorrect: true },
+        ...currentQ.distractors.map(d => ({ text: d, isCorrect: false }))
+      ];
+      const randomizedOptions = shuffleArray(rawOptions);
+
+      const optionsContainer = document.getElementById("optionsContainer");
+      optionsContainer.innerHTML = "";
+
+      randomizedOptions.forEach((opt, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.innerHTML = `<span><strong>${idx + 1}.</strong> ${opt.text}</span> <span class="opt-icon"></span>`;
+        btn.onclick = () => selectOption(btn, opt.isCorrect, currentQ);
+        optionsContainer.appendChild(btn);
+      });
+
+      // Reset Feedback & Next Button
+      document.getElementById("feedbackBox").style.display = "none";
+      document.getElementById("nextBtn").style.display = "none";
+
+      updateStatsUI();
+    }
+
+    function selectOption(clickedBtn, isCorrect, question) {
+      const allBtns = document.querySelectorAll(".option-btn");
+      allBtns.forEach(btn => btn.disabled = true);
+
+      state.totalAnswered += 1;
+      
+      const fbBox = document.getElementById("feedbackBox");
+      const fbTitle = document.getElementById("fbTitle");
+      const fbDesc = document.getElementById("fbDesc");
+      const nextBtn = document.getElementById("nextBtn");
+
+      if (isCorrect) {
+        state.score += 1;
+        state.streak += 1;
+        clickedBtn.classList.add("correct");
+        clickedBtn.querySelector(".opt-icon").textContent = "✓";
+
+        fbBox.className = "feedback-box correct-fb";
+        fbTitle.innerHTML = "🎉 완벽한 정답입니다!";
+        fbDesc.textContent = question.rule;
+      } else {
+        state.streak = 0;
+        clickedBtn.classList.add("wrong");
+        clickedBtn.querySelector(".opt-icon").textContent = "✕";
+
+        // 정답 버튼 표시
+        allBtns.forEach(btn => {
+          if (btn.textContent.includes(question.answer)) {
+            btn.classList.add("correct");
+            btn.querySelector(".opt-icon").textContent = "✓ (정답)";
+          }
+        });
+
+        fbBox.className = "feedback-box wrong-fb";
+        fbTitle.innerHTML = `💡 정답: [ ${question.answer} ]`;
+        fbDesc.textContent = question.rule;
+
+        if (!state.wrongIds.includes(question.id)) {
+          state.wrongIds.push(question.id);
+        }
+      }
+
+      state.answeredQuestions[question.id] = {
+        isCorrect: isCorrect,
+        rule: question.rule,
+        korean: question.korean,
+        answer: question.answer
+      };
+
+      fbBox.style.display = "block";
+      nextBtn.style.display = "block";
+      
+      saveState();
+      updateStatsUI();
+    }
+
+    function nextQuestion() {
+      if (state.currentIndex + 1 < state.quizPool.length) {
+        state.currentIndex += 1;
+        saveState();
+        renderCurrentQuiz();
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      document.getElementById("quizArea").style.display = "none";
+      const resultView = document.getElementById("resultView");
+      resultView.style.display = "block";
+
+      const total = state.quizPool.length;
+      document.getElementById("finalScore").textContent = state.score;
+      document.getElementById("finalTotal").textContent = `/ ${state.totalAnswered}`;
+
+      const reviewContainer = document.getElementById("wrongReviewList");
+      reviewContainer.innerHTML = "<strong>📌 복습해야 할 오답/핵심 포인트</strong>";
+
+      const wrongList = Object.values(state.answeredQuestions).filter(item => !item.isCorrect);
+      if (wrongList.length === 0) {
+        reviewContainer.innerHTML += "<p style='margin:8px 0; color:#16a34a;'>틀린 문제 없이 전 문항을 완벽히 맞추셨습니다! 🎉</p>";
+      } else {
+        wrongList.forEach(item => {
+          const div = document.createElement("div");
+          div.className = "review-item";
+          div.innerHTML = `<strong>${item.korean}</strong> ➔ <span style="color:#2563eb; font-weight:700;">${item.answer}</span><br><span style="color:#64748b; font-size:0.78rem;">${item.rule}</span>`;
+          reviewContainer.appendChild(div);
+        });
+      }
+    }
+
+    function restartQuiz() {
+      state.currentIndex = 0;
+      saveState();
+      renderCurrentQuiz();
+    }
+
+    function resetProgressPrompt() {
+      if (confirm("모든 학습 기록과 점수를 초기화하시겠습니까?")) {
+        localStorage.removeItem(STORAGE_KEY);
+        state = {
+          selectedCategory: "ALL",
+          currentIndex: 0,
+          score: 0,
+          totalAnswered: 0,
+          streak: 0,
+          quizPool: [],
+          answeredQuestions: {},
+          wrongIds: []
+        };
+        buildQuizPool();
+        renderCurrentQuiz();
+      }
+    }
+
+    // App Init
+    window.addEventListener("DOMContentLoaded", () => {
+      loadSavedState();
+      renderCurrentQuiz();
+    });
+  </script>
+</body>
+</html>
