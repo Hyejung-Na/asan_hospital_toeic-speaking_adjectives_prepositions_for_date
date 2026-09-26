@@ -5,45 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>토익스피킹 핵심 형용사 & 전치사 완벽 마스터 퀴즈</title>
 <script>
-  (function() {
-    const openDate = new Date(2026, 8, 26, 14, 30, 0);
-    if (new Date() < openDate) {
-      document.addEventListener("DOMContentLoaded", function() {
-        document.body.innerHTML = `
-          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; text-align:center; padding:20px; font-family:sans-serif; background-color:#f8f9fa;">
-            <div style="background:#ffffff; border-radius:12px; padding:30px; box-shadow:0 4px 12px rgba(0,0,0,0.1); max-width:90%;">
-              <h2 style="color:#3182ce; margin-bottom:12px; font-size:20px;">⏳ 퀴즈 오픈 대기 중</h2>
-              <p style="color:#4a5568; line-height:1.6; margin:0; font-size:15px;">
-                본 퀴즈는 <strong>2026년 9월 26일 오후 2시 30분</strong>부터 참여 가능합니다.<br>
-                잠시 후 다시 접속해 주세요.
-              </p>
-            </div>
+(function() {
+  const openDate = new Date(2026, 8, 26, 15, 30, 0);
+  if (new Date() < openDate) {
+    document.addEventListener("DOMContentLoaded", function() {
+      document.body.innerHTML = `
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; text-align:center; padding:20px; font-family:sans-serif; background-color:#f8f9fa;">
+          <div style="background:#ffffff; border-radius:12px; padding:30px; box-shadow:0 4px 12px rgba(0,0,0,0.1); max-width:90%;">
+            <h2 style="color:#3182ce; margin-bottom:12px; font-size:20px;">⏳ 퀴즈 오픈 대기 중</h2>
+            <p style="color:#4a5568; line-height:1.6; margin:0; font-size:15px;">
+              본 퀴즈는 <strong>2026년 9월 26일 오후 3시 30분</strong>부터 참여 가능합니다.<br>
+              잠시 후 다시 접속해 주세요.
+            </p>
           </div>
-        `;
-      });
-    }
-  })();
-</script>
-    // ⏰ 마감 일시 설정: 2026년 9월 26일 오후 2시 (14시 00분)
-    // (월은 0부터 시작하므로 9월 = 8)
-    const expiryDate = new Date(2026, 8, 26, 14, 0, 0);
-
-    if (new Date() > expiryDate) {
-      document.addEventListener("DOMContentLoaded", function() {
-        document.body.innerHTML = `
-          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; text-align:center; padding:20px; font-family:sans-serif; background-color:#f8f9fa;">
-            <div style="background:#ffffff; border-radius:12px; padding:30px; box-shadow:0 4px 12px rgba(0,0,0,0.1); max-width:90%;">
-              <h2 style="color:#e53e3e; margin-bottom:12px; font-size:20px;">⚠️ 퀴즈 응답이 마감되었습니다</h2>
-              <p style="color:#4a5568; line-height:1.6; margin:0; font-size:15px;">
-                2026년 9월 26일 오후 2시부로 퀴즈 제출이 완료되었습니다.<br>
-                추후 진행 일정은 별도 안내를 참고해 주세요.
-              </p>
-            </div>
-          </div>
-        `;
-      });
-    }
-  })();
+        </div>
+      `;
+    });
+  }
+})();
 </script>
   <style>
     /* Pull-to-refresh 및 바운스 스크롤 방지 */
